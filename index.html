@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIR mcc (FH)</title>
+  <meta name="description" content="Voice-first intelligent knowledge assistant and institutional portal for Mirzapur Cadet College cadets, alumni, administration, achievements, and history.">
+  <meta property="og:title" content="MCC AI — Mirzapur Cadet College Intelligent Knowledge Assistant">
+  <meta property="og:description" content="Explore verified knowledge about Mirzapur Cadet College through voice and text: alumni records, faculty, houses, batches, and achievements.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MCC AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MCC AI — Mirzapur Cadet College Intelligent Knowledge Assistant">
+  <meta name="twitter:description" content="Voice-first intelligent knowledge assistant for Mirzapur Cadet College. Ask questions by voice or text.">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "MCC AI — Mirzapur Cadet College Intelligent Knowledge Assistant",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All modern web browsers",
+    "description": "Voice-enabled intelligent knowledge assistant for Mirzapur Cadet College offering authorized queries about administration, cadets, alumni, batches, houses, achievements, and college history.",
+    "creator": {
+      "@type": "EducationalOrganization",
+      "name": "Mirzapur Cadet College"
+    }
+  }
+  </script>
+
+  <!-- Typography: Google Fonts with local fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Top Institutional Bar & Banner -->
+  <div class="institutional-strip" role="region" aria-label="Official Institutional Notice">
+    <div class="strip-content">
+      <span class="strip-text">Mirzapur Cadet College </span>
+      <div class="strip-controls">
+        <span class="motto-text" lang="bn">বিদ্যাই বল ( Knowledge is Power)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Header & Navigation (3-Zone Top Bar Contract) -->
+  <header class="app-header" id="mainHeader">
+    <div class="header-container">
+      <!-- Zone 1: Brand Wordmark -->
+      <a href="#robot" class="brand-link" id="brandLink" aria-label="MCC AI Robotic Assistant">
+        <div class="brand-crest-wrapper">
+          <img src="./assets/mcc-college-logo.png" alt="Mirzapur Cadet College crest" class="brand-crest-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="brand-crest-fallback" style="display:none;" aria-hidden="true">MCC</div>
+        </div>
+        <div class="brand-text-block">
+          
+          <span class="brand-sub">Mirzapur Cadet College</span>
+        </div>
+      </a>
+
+      <!-- Zone 2: Navigation Links (Robotic Voice AI & Admin Control Panel) -->
+      <nav class="nav-links" id="mainNav" aria-label="Main Navigation">
+        <button type="button" class="nav-btn active" data-view="robot"> AIR MCC</button>
+        <button type="button" class="nav-btn" data-view="admin">⚙️ Admin Control Panel</button>
+      </nav>
+
+      <!-- Zone 3: Actions & Controls -->
+      <div class="header-actions">
+        <!-- Voice Sound Output Toggle -->
+        <button type="button" class="action-btn-sm sound-toggle-btn" id="soundToggleBtn" title="Toggle Robot Voice Output" aria-label="Toggle Voice Output">
+          <span id="soundToggleIcon">🔊</span>
+        </button>
+
+        <!-- Dark/Light Mode Toggle -->
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" title="Toggle theme">
+          <span class="theme-icon light-icon" aria-hidden="true">☀️</span>
+          <span class="theme-icon dark-icon" aria-hidden="true">🌙</span>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" hidden>
+      <div class="mobile-nav-inner">
+        <button type="button" class="mobile-nav-btn active" data-view="robot">AIR mcc</button>
+        <button type="button" class="mobile-nav-btn" data-view="admin">⚙️ Admin Control Panel</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport Content Host -->
+  <main id="appMain" class="app-main-viewport">
+
+    <!-- ========================================================
+         VIEW 1: ROBOTIC FACE VOICE AI ASSISTANT
+         ======================================================== -->
+    <section class="spa-view active" id="view-robot" aria-label="Robotic Face Voice AI">
+      <div class="robot-view-container">
+        <div class="campus-slideshow" aria-hidden="true">
+          <span class="campus-slide campus-slide-1"></span>
+          <span class="campus-slide campus-slide-2"></span>
+          <span class="campus-slide campus-slide-3"></span>
+          <span class="campus-slide campus-slide-4"></span>
+        </div>
+        <audio id="robotHandsFreeAudio" preload="none">
+          <source src="./assets/hands-free-voice.mp4" type="audio/mp4">
+        </audio>
+        <button type="button" class="robot-hands-free-audio-btn" id="robotHandsFreeAudioBtn"
+          aria-label="Play the hands-free voice" title="Play voice">
+          <span aria-hidden="true">🔊</span>
+        </button>
+        <div class="robot-hands-free-prompts" role="group" aria-label="Sample questions">
+          <button type="button" data-question="Who is the acting principal?" aria-label="Sample question 1: Who is the acting principal?" title="Who is the acting principal?">1</button>
+          <button type="button" data-question="Who is the adjutant?" aria-label="Sample question 2: Who is the adjutant?" title="Who is the adjutant?">2</button>
+          <button type="button" data-question="Who is the medical officer?" aria-label="Sample question 3: Who is the medical officer?" title="Who is the medical officer?">3</button>
+          <button type="button" data-question="Tell me about Abdus Salam." aria-label="Sample question 4: Tell me about Abdus Salam" title="Tell me about Abdus Salam">4</button>
+          <button type="button" data-question="Tell me about Rasheduzzaman Sir." aria-label="Sample question 5: Tell me about Rasheduzzaman Sir" title="Tell me about Rasheduzzaman Sir">5</button>
+          <button type="button" data-question="Tell me about Nahida Sultana." aria-label="Sample question 6: Tell me about Nahida Sultana" title="Tell me about Nahida Sultana">6</button>
+          <button type="button" data-question="Who is the Mess OIC?" aria-label="Sample question 7: Who is the Mess OIC?" title="Who is the Mess OIC?">7</button>
+        </div>
+
+        <!-- Header / Intro Banner -->
+        <div class="robot-hero-heading">
+          
+          <h1 class="robot-main-title">AIR mcc</h1>
+          <p class="robot-hero-description">Our AI is ready to help you and take you to the Glory of Mirzapur Cadet College</p>
+        </div>
+
+        <!-- Interactive Robotic Face & Person Spotlight Stage -->
+        <div class="robot-face-stage">
+          <button type="button" class="robot-hands-free-btn" id="robotHandsFreeBtn"
+            aria-pressed="false" aria-label="Open fullscreen hands-free listening mode">
+            <span aria-hidden="true">⛶</span> Hands-free
+          </button>
+          <div class="face-and-spotlight-stage">
+            <div class="robot-face-frame" id="face">
+              <div class="ai-bot" aria-hidden="true">
+                <div class="ai-bot-head">
+                  <div class="ai-bot-face">
+                    <div class="ai-bot-eyes"></div>
+                    <div class="ai-bot-mouth"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="person-spotlight-card" id="personSpotlightCard" aria-live="polite">
+              <div class="spotlight-card-inner">
+                <div class="spotlight-badge">
+                  <span class="spotlight-dot"></span>
+                  <span id="spotlightBadgeText">OFFICIAL RECORD</span>
+                </div>
+                <div class="spotlight-avatar-box">
+                  <img id="spotlightPhoto" class="spotlight-avatar spotlight-avatar-logo" src="./assets/mcc-college-logo.png" alt="Mirzapur Cadet College crest" onerror="this.onerror=null; this.src='./assets/mcc-college-logo.png'; this.classList.add('spotlight-avatar-logo');">
+                </div>
+                <div class="spotlight-details">
+                  <h4 id="spotlightName" class="spotlight-name">DR. MD. ABUL KALAM AZAD</h4>
+                  <div id="spotlightRole" class="spotlight-role">Principal · Mirzapur Cadet College</div>
+                </div>
+                <div class="spotlight-timer-container">
+                  <div class="spotlight-timer-bar" id="spotlightTimerBar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Voice Activation Pod & Big Mic Button -->
+        <div class="robot-mic-pod">
+          <button type="button" class="robot-big-mic-btn" id="robotBigMicBtn" aria-label="Activate Voice to Ask MCC AI">
+            <span id="robotMicIcon">🎙️</span>
+          </button>
+          <span class="robot-mic-caption" id="robotMicCaption">TAP TO SPEAK</span>
+        </div>
+
+        <!-- Real-time Audio Visualizer Canvas -->
+        <div class="robot-wave-bar-wrap">
+          <canvas id="audioVisualizerCanvas" width="520" height="40" style="width:100%; height:100%;"></canvas>
+        </div>
+
+        <!-- Question and answer transcript -->
+        <div class="robot-conversation-deck voice-only-deck" id="robotConversationDeck">
+          <!-- Voice Status & Recognized Inquiry Indicator -->
+          <div class="voice-status-pod" id="voiceStatusPod">
+            <span class="voice-inquiry-tag" id="voiceInquiryTag">🎙️ VOICE INPUT</span>
+          </div>
+
+          <div class="voice-transcript-box">
+            <span class="voice-transcript-label">You asked</span>
+            <p id="robotUserTranscript" class="voice-inquiry-text" aria-live="polite">Your recognized question will appear here.</p>
+          </div>
+
+          <div class="voice-response-box" aria-live="polite">
+            <span class="voice-transcript-label">MCC AI answered</span>
+            <p id="robotAnswerText" class="robot-response-text">The answer will appear here.</p>
+          </div>
+
+          <span id="robotAnswerVerified" style="display:none;" aria-hidden="true">✓ Verified Record</span>
+          <span id="robotSourceMeta" style="display:none;" aria-hidden="true"></span>
+
+          <!-- Voice Playback & Speed Controls -->
+          <div class="robot-voice-actions-bar">
+            <div class="robot-action-buttons">
+              <button type="button" class="btn-robot-speech" id="robotReplayBtn" title="Replay Assistant Voice">
+                <span id="replayBtnLabel">🔊 Replay Voice</span>
+              </button>
+              <button type="button" class="btn-robot-stop" id="robotStopBtn" hidden title="Stop Voice">
+                <span id="stopBtnLabel">⏹️ Stop Voice</span>
+              </button>
+            </div>
+            <div class="robot-rate-box">
+              <span id="voiceSpeedLabel" style="font-size:0.8rem; color:var(--text-secondary);">Voice Speed:</span>
+              <select id="robotSpeechRate" class="rate-select" style="padding:0.25rem 0.5rem; font-size:0.78rem;">
+                <option value="0.9">0.9x</option>
+                <option value="1.0" selected>1.0x</option>
+                <option value="1.2">1.2x</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <p class="robot-house-credit">Fazlul Haque House</p>
+        <p class="robot-presents">Presents</p>
+      </div>
+    </section>
+
+    <section class="spa-view" id="view-admin" aria-label="Admin Dashboard" hidden>
+      <div class="content-container section-pad">
+
+        <!-- Admin Auth Check Gate -->
+        <div id="adminLoginGate" class="admin-auth-scene">
+          <div class="campus-slideshow" aria-hidden="true">
+            <span class="campus-slide campus-slide-1"></span>
+            <span class="campus-slide campus-slide-2"></span>
+            <span class="campus-slide campus-slide-3"></span>
+            <span class="campus-slide campus-slide-4"></span>
+          </div>
+          <div class="admin-auth-layout">
+            <div class="admin-auth-copy">
+              <span class="admin-auth-overline">Mirzapur Cadet College · Since 1963</span>
+              <h1>Knowledge.<br>Tradition.<br><span>Leadership.</span></h1>
+              <p style="display: flex;color: #f5a63f;;">What you perform Today.</p>
+              <p style="display: flex;color: #d17232;;">Tomorrow it will be History</p>
+              <button type="button" class="admin-public-link" data-view="robot">Continue to AIR MCC <span aria-hidden="true">→</span></button>
+            </div>
+
+            <div class="admin-auth-card">
+              <img class="auth-brand-mark" src="./assets/mcc-college-logo.png" alt="Mirzapur Cadet College crest">
+              <p class="auth-kicker">Administrator access</p>
+              <h2 class="auth-title">Welcome back</h2>
+              <p class="auth-subtitle">Sign in to continue</p>
+
+              <form id="adminLoginForm" class="admin-login-form">
+                <div class="form-group">
+                  <label for="adminUsernameInput">Username</label>
+                  <input type="text" id="adminUsernameInput" class="form-input" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                  <label for="adminPasswordInput">Password</label>
+                  <input type="password" id="adminPasswordInput" class="form-input" required autocomplete="current-password" >
+                </div>
+                <div id="loginErrorMsg" class="form-error" role="alert" hidden>Invalid username or password.</div>
+                <button type="submit" class="btn-institutional-primary full-width">Sign in to Admin Panel</button>
+              </form>
+            </div>
+          </div>
+          <p class="admin-auth-photo-credit"> <a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Mirzapur_Cadet_College.jpg" target="_blank" rel="noreferrer"></a> <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer"></a></p>
+        </div>
+
+        <!-- Authenticated Admin Interface -->
+        <div id="adminDashboardPanel" class="admin-panel" hidden>
+          <div class="admin-panel-top">
+            <div>
+              <h2 class="admin-panel-title">Administrator Knowledge Console</h2>
+            </div>
+            <div class="admin-top-actions">
+              <button type="button" class="btn-text-sm" id="adminVoiceConsoleBtn"> Voice Console</button>
+              <button type="button" class="btn-text-sm danger" id="adminLogoutBtn">Sign Out</button>
+            </div>
+          </div>
+
+          <!-- Overview Stats Bar -->
+          <div class="admin-stats-strip">
+            <div class="stat-box">
+              <span class="stat-number tabular-nums" id="statCadets">0</span>
+              <span class="stat-label">Current Cadets</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number tabular-nums" id="statAlumni">0</span>
+              <span class="stat-label">Alumni Records</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number tabular-nums" id="statAdmin">0</span>
+              <span class="stat-label">Administration</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number tabular-nums" id="statVerified">0</span>
+              <span class="stat-label">Total Verified Records</span>
+            </div>
+          </div>
+
+          
+          <div class="segmented-control" id="adminSubTabs">
+            <button type="button" class="segment-btn active" data-tab="qa">Sample Question Edit(<span id="qaCountBadge">0</span>)</button>
+            <button type="button" class="segment-btn" data-tab="people">People & Records (<span id="peopleCountBadge">0</span>)</button>
+            <button type="button" class="segment-btn" data-tab="add">Add New Entry</button>
+            <button type="button" class="segment-btn" data-tab="college-info">College Info</button>
+            <button type="button" class="segment-btn" data-tab="backup">Storage & Backup</button>
+          </div>
+
+         
+          <div class="admin-subview" id="adminTab-qa">
+            <div class="admin-subhead">
+              <div>
+                <h3>Sample Questions & Spoken Voice Answers</h3>
+               
+              </div>
+            </div>
+
+            <div class="qa-toolbar">
+              <div class="qa-filter-group">
+                <input type="search" id="qaSearchInput" class="table-search-input" placeholder="Search questions or keywords...">
+                <select id="qaCategoryFilter" class="form-input" style="max-width: 220px;">
+                  <option value="ALL">All Categories</option>
+                  <option value="College Identity">College Identity</option>
+                  <option value="College History">College History</option>
+                  <option value="Campus & Location">Campus & Location</option>
+                  <option value="Campus & Infrastructure">Campus & Infrastructure</option>
+                  <option value="House System">House System</option>
+                  <option value="Administration & Leadership">Administration & Leadership</option>
+                  <option value="Admissions & Academics">Admissions & Academics</option>
+                  <option value="General Overview">General Overview</option>
+                </select>
+              </div>
+              <button type="button" class="btn-institutional-primary" id="openAddQaModalBtn">
+                <span>➕ Add Sample Question</span>
+              </button>
+            </div>
+
+            <div id="qaTableContainer" class="qa-card-grid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Admin Subtab 2: People & Records Directory -->
+          <div class="admin-subview" id="adminTab-people" hidden>
+            <div class="admin-subhead">
+              <div>
+                <h3>All Knowledge Records (<span id="totalRecordsCount">0</span>)</h3>
+                
+              </div>
+              <div class="admin-records-filter" style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+                <select id="adminRecordsTypeFilter" class="form-input" style="max-width: 170px; padding: 0.45rem 0.75rem;">
+                  <option value="ALL">All Categories</option>
+                  <option value="alumni">Alumni</option>
+                  <option value="cadet">Current Cadets</option>
+                  <option value="administration">Administration</option>
+                  <option value="achievement">Achievements</option>
+                </select>
+                <input type="search" id="adminManageSearch" class="table-search-input" placeholder="Search records by name, batch, role...">
+              </div>
+            </div>
+            <div class="table-responsive">
+                                                                                                                                       <table class="data-table" id="adminDataTable">
+                <thead>
+                  <tr>
+                    <th>Record Name</th>
+                    <th>Type</th>
+                    <th>Batch / Role</th>
+                    <th>Status</th>
+                    <th>Privacy</th>
+                    <th>Last Updated</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminRecordsTbody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Admin Subtab 3: Add New Entry Form -->
+          <div class="admin-subview" id="adminTab-add" hidden>
+            <div class="admin-subhead">
+              <h3>Manual Knowledge Entry Form</h3>
+              
+            </div>
+            <form id="addRecordForm" class="crud-form">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="formRecordType">Record Type *</label>
+                  <select id="formRecordType" class="form-input" required>
+                    <option value="alumni">Alumni / Ex-Cadet</option>
+                    <option value="cadet">Current Cadet</option>
+                    <option value="administration">Administration / Faculty</option>
+                    <option value="achievement">Achievement Record</option>
+                    <option value="event">College Event</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="formFullName">Full Name / Title *</label>
+                  <input type="text" id="formFullName" class="form-input" >
+                </div>
+              </div>
+
+              <!-- Dynamic sub-fields for alumni/cadet -->
+              <div class="form-row-2" id="formCadetRow">
+                <div class="form-group">
+                  <label for="formCadetNumber">Cadet Number (C.No)</label>
+                  <input type="text" id="formCadetNumber" class="form-input" >
+                </div>
+                <div class="form-group">
+                  <label for="formBatch">Batch Number</label>
+                  <input type="text" id="formBatch" class="form-input" >
+                </div>
+              </div>
+
+              <div class="form-row-2" id="formHouseRow">
+                <div class="form-group">
+                  <label for="formHouse">House Affiliation (3 Historic Houses)</label>
+                  <select id="formHouse" class="form-input">
+                    <option value="Fazlul Haque">Fazlul Haque House (BLUE)</option>
+                    <option value="Suhrawardy">Suhrawardy House (RED)</option>
+                    <option value="Nazrul">Nazrul House (Green)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="formPrivacy">Privacy Tier</label>
+                  <select id="formPrivacy" class="form-input">
+                    <option value="PUBLIC">PUBLIC</option>
+                    <option value="MCC_COMMUNITY">MCC_COMMUNITY</option>
+                    <option value="RESTRICTED">RESTRICTED</option>
+                    <option value="PRIVATE">PRIVATE</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" id="formClassRow" hidden>
+                <label for="formClass">Current Cadet Class *</label>
+                <select id="formClass" class="form-input">
+                  <option value="">Select class</option>
+                  <option value="Class 7">Class 7</option>
+                  <option value="Class 8">Class 8</option>
+                  <option value="Class 9">Class 9</option>
+                  <option value="Class 10">Class 10</option>
+                  <option value="Class 11">Class 11</option>
+                  <option value="Class 12">Class 12</option>
+                </select>
+              </div>
+
+              <!-- Person Photo Upload / Link -->
+              <div class="form-group">
+                <label>Person Photograph (Direct Link or Upload to Local Storage)</label>
+                <div class="photo-uploader-box">
+                  <div class="photo-preview-wrap">
+                    <img id="formPhotoPreview" class="photo-preview-thumb" src="" alt="Preview" style="display: none;">
+                    <div id="formPhotoEmpty" class="photo-preview-empty">📷</div>
+                    <div style="flex:1;">
+                      <button type="button" class="btn-text-sm danger" id="formRemovePhotoBtn" style="display:none; margin-bottom:0.4rem;">Remove Photo</button>
+                      <p style="font-size:0.78rem; color:var(--text-muted); margin:0;">Provide a web image URL or upload an image file from your device to save in LocalStorage.</p>
+                    </div>
+                  </div>
+                  <div class="form-row-2" style="margin-top:0.25rem;">
+                    <div class="form-group" style="margin:0;">
+                      <label for="formPhotoUrl" style="font-size:0.75rem;">Web Image URL</label>
+                      <input type="url" id="formPhotoUrl" class="form-input" placeholder="https://.../photo.jpg">
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                      <label for="formPhotoFile" style="font-size:0.75rem;">Upload from Device (LocalStorage)</label>
+                      <input type="file" id="formPhotoFile" accept="image/*" class="form-input" style="padding:0.4rem;">
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" id="formPhotoData">
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="formRoleProf">Role / Profession</label>
+                  <input type="text" id="formRoleProf" class="form-input" placeholder="e.g. Principal / Senior Consultant Surgeon">
+                </div>
+                <div class="form-group">
+                  <label for="formOrganization">Organization / Affiliation</label>
+                  <input type="text" id="formOrganization" class="form-input" placeholder="e.g. Armed Forces Medical College / NASA">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="formKeywords">Keywords for People Matching (comma-separated)</label>
+                <input type="text" id="formKeywords" class="form-input" placeholder="e.g. principal, headmaster, admin, discipline officer, academic leader">
+              </div>
+
+              <div class="form-group">
+                <label for="formAchievement">Achievements (Comma separated)</label>
+                <input type="text" id="formAchievement" class="form-input" placeholder="e.g. President's Gold Medal 2012, National Research Award">
+              </div>
+
+              <div class="form-group">
+                <label for="formBio">Biography & Verified Details</label>
+                <textarea id="formBio" class="form-textarea" rows="4" placeholder="Enter verified institutional summary or educational background..."></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-institutional-primary">Save to Institutional Archives</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Admin Subtab: College Info Editor -->
+          <div class="admin-subview" id="adminTab-college-info" hidden>
+            <div class="admin-subhead">
+              <h3>Mirzapur Cadet College History & Institutional Profile</h3>
+              
+            </div>
+            <form id="editCollegeInfoForm" class="crud-form">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="collegeTitleInput">College Title</label>
+                  <input type="text" id="collegeTitleInput" class="form-input" value="Mirzapur Cadet College">
+                </div>
+                <div class="form-group">
+                  <label for="collegeMottoInput">College Motto</label>
+                  <input type="text" id="collegeMottoInput" class="form-input" value="বিদ্যাই বল ( Knowledge is Power)">
+                </div>
+              </div>
+              <div class="form-row-3">
+                <div class="form-group">
+                  <label for="collegeEstInput">Foundation Year</label>
+                  <input type="text" id="collegeEstInput" class="form-input" value="1963">
+                </div>
+                <div class="form-group">
+                  <label for="collegeAreaInput">Campus Area</label>
+                  <input type="text" id="collegeAreaInput" class="form-input" value="95 Acres">
+                </div>
+                <div class="form-group">
+                  <label for="collegeDistrictInput">District</label>
+                  <input type="text" id="collegeDistrictInput" class="form-input" value="Tangail, Bangladesh">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="collegeHistoryTextarea">Official Historical Record & Narrative *</label>
+                <textarea id="collegeHistoryTextarea" class="form-textarea" rows="8"></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn-institutional-primary">Save Updated College History</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Admin Subtab 4: Backup & Restore -->
+          <div class="admin-subview" id="adminTab-backup" hidden>
+            <div class="admin-subhead">
+              <h3>System Database Administration & Archives Backup</h3>
+              
+            </div>
+            <div class="backup-actions-grid">
+              <div class="backup-card">
+                <h4>Export Database Snapshot</h4>
+                <p>Download complete JSON archive containing all cadets, alumni, faculty, events, and audit logs.</p>
+                <button type="button" class="btn-institutional-secondary" id="exportDbBtn">Download JSON Snapshot</button>
+              </div>
+              <div class="backup-card">
+                <h4>Import Database Snapshot</h4>
+                <p>Restore or overwrite database from a verified institutional JSON export archive.</p>
+                <input type="file" id="importDbFile" accept=".json" class="file-input">
+              </div>
+              <div class="backup-card">
+                <h4>Reset Database to Baseline</h4>
+                <p>Re-initialize knowledge base with official Mirzapur Cadet College baseline records.</p>
+                <button type="button" class="btn-institutional-secondary danger" id="resetDataDefaultBtn">Reset to Baseline Defaults</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       MODAL: PERSON PROFILE DETAILS (REUSABLE FOR CADET/ALUMNI/FACULTY)
+       ======================================================== -->
+  <div class="modal-backdrop" id="profileModal" hidden style="display: none;">
+    <div class="modal-dialog profile-dialog" role="dialog" aria-modal="true" aria-labelledby="modalProfileName">
+      <button type="button" class="modal-close-btn" id="closeProfileModalBtn" onclick="closeProfileModal()" aria-label="Close Profile">✕</button>
+      <div class="profile-modal-body" id="profileModalBody">
+        <!-- Rendered dynamically by JS renderProfileModal(person) -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: EDIT RECORD (PERSON / ALUMNI / CADET / FACULTY)
+       ======================================================== -->
+  <div class="modal-backdrop" id="editRecordModal" hidden style="display: none;">
+    <div class="modal-dialog edit-dialog" role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
+      <button type="button" class="modal-close-btn" id="closeEditModalBtn" onclick="closeEditRecordModal()" aria-label="Close Edit Modal">✕</button>
+      <div class="edit-modal-content">
+        <span class="v-admin-badge">RECORD EDITOR</span>
+        <h3 class="auth-title" id="editModalTitle" style="margin-top:0.25rem;">Edit Record Information</h3>
+        <p class="auth-sub" id="editModalSub">Modify updated details. Every change updates the official institutional record.</p>
+
+        <form id="editRecordForm" class="crud-form" style="margin-top: 1rem;">
+          <input type="hidden" id="editRecordId">
+          <input type="hidden" id="editRecordType">
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="editFullName">Full Name *</label>
+              <input type="text" id="editFullName" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="editRoleProf">Role / Position / Profession *</label>
+              <input type="text" id="editRoleProf" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="editOrganization">Organization / Department</label>
+              <input type="text" id="editOrganization" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="editStatus">Verification Status</label>
+              <select id="editStatus" class="form-input">
+                <option value="true">✓ Verified Official</option>
+                <option value="false">⚠ Pending Verification</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2" id="editCadetRow">
+            <div class="form-group" id="editCadetNumGroup">
+              <label for="editCadetNumber">Cadet Number (C.No)</label>
+              <input type="text" id="editCadetNumber" class="form-input" placeholder="e.g. 2410">
+            </div>
+            <div class="form-group" id="editClassGroup">
+              <label for="editClass">Current Class</label>
+              <select id="editClass" class="form-input">
+                <option value="">Select class</option>
+                <option value="Class 7">Class 7</option>
+                <option value="Class 8">Class 8</option>
+                <option value="Class 9">Class 9</option>
+                <option value="Class 10">Class 10</option>
+                <option value="Class 11">Class 11</option>
+                <option value="Class 12">Class 12</option>
+              </select>
+            </div>
+            <div class="form-group" id="editBatchGroup">
+              <label for="editBatch">Batch Number</label>
+              <input type="text" id="editBatch" class="form-input" placeholder="e.g. 45">
+            </div>
+          </div>
+
+          <div class="form-row-2" id="editHouseRow">
+            <div class="form-group">
+              <label for="editHouse">House Affiliation (3 Historic Houses)</label>
+              <select id="editHouse" class="form-input">
+                <option value="Fazlul Haque">Fazlul Haque House (BLUE)</option>
+                <option value="Suhrawardy">Suhrawardy House (RED)</option>
+                <option value="Nazrul">Nazrul House (Green)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="editPrivacy">Privacy Tier</label>
+              <select id="editPrivacy" class="form-input">
+                <option value="PUBLIC">PUBLIC</option>
+                <option value="MCC_COMMUNITY">MCC_COMMUNITY</option>
+                <option value="RESTRICTED">RESTRICTED</option>
+                <option value="PRIVATE">PRIVATE</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Person Photo Upload / Link -->
+          <div class="form-group">
+            <label>Person Photograph (Direct Link or Upload to Local Storage)</label>
+            <div class="photo-uploader-box">
+              <div class="photo-preview-wrap">
+                <img id="editPhotoPreview" class="photo-preview-thumb" src="" alt="Preview" style="display: none;">
+                <div id="editPhotoEmpty" class="photo-preview-empty">📷</div>
+                <div style="flex:1;">
+                  <button type="button" class="btn-text-sm danger" id="editRemovePhotoBtn" style="display:none; margin-bottom:0.4rem;">Remove Photo</button>
+                  <p style="font-size:0.78rem; color:var(--text-muted); margin:0;">Provide a web image URL or upload an image file from your device to save in LocalStorage.</p>
+                </div>
+              </div>
+              <div class="form-row-2" style="margin-top:0.25rem;">
+                <div class="form-group" style="margin:0;">
+                  <label for="editPhotoUrl" style="font-size:0.75rem;">Web Image URL</label>
+                  <input type="url" id="editPhotoUrl" class="form-input" placeholder="https://.../photo.jpg">
+                </div>
+                <div class="form-group" style="margin:0;">
+                  <label for="editPhotoFile" style="font-size:0.75rem;">Upload from Device (LocalStorage)</label>
+                  <input type="file" id="editPhotoFile" accept="image/*" class="form-input" style="padding:0.4rem;">
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="editPhotoData">
+          </div>
+
+          <div class="form-group">
+            <label for="editAchievements">Achievements (Comma separated)</label>
+            <input type="text" id="editAchievements" class="form-input" placeholder="Award 1, Award 2">
+          </div>
+
+          <div class="form-group">
+            <label for="editKeywords">Keywords for People Matching (comma-separated)</label>
+            <input type="text" id="editKeywords" class="form-input" placeholder="e.g. principal, headmaster, admin, academic leader">
+          </div>
+
+          <div class="form-group">
+            <label for="editBio">Biography / Record Details</label>
+            <textarea id="editBio" class="form-textarea" rows="4"></textarea>
+          </div>
+
+          <div class="form-actions" style="justify-content: space-between; align-items:center;">
+            <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+              <button type="submit" class="btn-institutional-primary">Save Changes & Create Version</button>
+              <button type="button" class="btn-institutional-secondary" id="cancelEditBtn" onclick="closeEditRecordModal()">Cancel</button>
+            </div>
+            <button type="button" class="btn-text-sm danger" id="deleteInEditBtn" style="padding:0.5rem 0.9rem;">Delete Record</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: VOICE ADMIN COMMAND WORKFLOW
+       ======================================================== -->
+  <div class="modal-backdrop" id="voiceAdminModal" hidden style="display: none;">
+    <div class="modal-dialog voice-admin-dialog" role="dialog" aria-modal="true">
+      <button type="button" class="modal-close-btn" id="closeVoiceAdminBtn" onclick="VoiceAdmin.close()" aria-label="Close Voice Admin">✕</button>
+      <div class="voice-admin-content">
+        <div class="voice-admin-header">
+          <span class="v-admin-badge">VOICE COMMAND SYSTEM</span>
+          <h3 class="v-admin-title">Administrative Voice Update</h3>
+          <p class="v-admin-sub">Speak updates naturally. Example: <em>"Add an achievement for Ahmed Hasan"</em></p>
+        </div>
+
+        <div class="voice-admin-step-box" id="voiceAdminStepBox">
+          <div class="v-step-mic-area">
+            <button type="button" class="voice-admin-mic" id="voiceAdminMicBtn">
+              <span class="mic-glyph">🎙️</span>
+            </button>
+            <div class="v-admin-status" id="voiceAdminStatus">Click mic and speak command</div>
+          </div>
+          <div class="v-admin-transcript" id="voiceAdminTranscript">"Waiting for speech input..."</div>
+        </div>
+
+        <!-- Confirmation Preview Card -->
+        <div class="confirmation-card" id="voiceConfirmCard" hidden>
+          <div class="confirm-head">
+            <span class="confirm-tag">PROPOSED UPDATE</span>
+            <h4>Verify Voice Extracted Data</h4>
+          </div>
+          <div class="confirm-fields">
+            <div class="c-field"><span class="c-label">Person:</span> <strong id="vConfPerson">-</strong></div>
+            <div class="c-field"><span class="c-label">Action:</span> <span id="vConfAction">ADD_ACHIEVEMENT</span></div>
+            <div class="c-field"><span class="c-label">Achievement:</span> <span id="vConfDetail">-</span></div>
+            <div class="c-field"><span class="c-label">Year:</span> <span id="vConfYear">2026</span></div>
+          </div>
+          <div class="confirm-actions">
+            <button type="button" class="btn-institutional-primary" id="vConfAcceptBtn">Confirm & Save Record</button>
+            <button type="button" class="btn-institutional-secondary" id="vConfCancelBtn" onclick="VoiceAdmin.close()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="versionModal" hidden style="display: none;">
+    <div class="modal-dialog version-dialog" role="dialog" aria-modal="true" aria-labelledby="versionModalTitle">
+      <button type="button" class="modal-close-btn" id="closeVersionModalBtn" onclick="closeVersionHistoryModal()" aria-label="Close Version History">✕</button>
+      <div class="version-modal-content">
+        <span class="v-admin-badge">AUDIT TRAIL</span>
+        <h3 class="version-title" id="versionModalTitle" style="margin-top:0.25rem;">Record Version History</h3>
+        <p class="version-subtitle" id="versionTargetName">Entity History</p>
+        <div class="version-timeline" id="versionTimeline" style="margin-top:1.25rem; max-height:360px; overflow-y:auto; display:flex; flex-direction:column; gap:0.75rem;">
+          <!-- Populated by JS -->
+        </div>
+        <div class="version-modal-footer" style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-subtle); display:flex; justify-content:flex-end; gap:0.75rem;">
+          <button type="button" class="btn-institutional-secondary" id="cancelVersionModalBtn" onclick="closeVersionHistoryModal()">Close / Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: ADD / EDIT Q&A KNOWLEDGE BASE ITEM
+       ======================================================== -->
+  <div class="modal-backdrop" id="qaModal" hidden style="display: none;">
+    <div class="modal-dialog version-dialog" role="dialog" aria-modal="true" aria-labelledby="qaModalTitle" style="max-width: 620px;">
+      <button type="button" class="modal-close-btn" id="closeQaModalBtn" onclick="closeQaModal()" aria-label="Close modal">✕</button>
+      <div class="crud-modal-content" style="padding: 1.5rem;">
+        <span class="v-admin-badge" style="background:rgba(56,217,255,0.15); color:#38d9ff; border:1px solid rgba(56,217,255,0.3); padding:0.25rem 0.6rem; border-radius:999px; font-size:0.75rem; font-family:var(--font-mono);">VOICE KNOWLEDGE BASE</span>
+        <h3 class="version-title" id="qaModalTitle" style="margin-top:0.35rem; margin-bottom:0.25rem;">Add Sample Question & Answer</h3>
+        <p class="version-subtitle" style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.25rem;">When any user asks this question or similar phrasing, the AI will deliver this exact answer.</p>
+
+        <form id="qaForm" class="crud-form">
+          <input type="hidden" id="qaFormId" value="">
+
+          <div class="form-group" style="margin-bottom:1rem;">
+            <label for="qaFormQuestion" style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Sample Question *</label>
+            <input type="text" id="qaFormQuestion" class="form-input" required placeholder="e.g. What is the official motto of Mirzapur Cadet College?" style="width:100%;">
+          </div>
+
+          <div class="form-row-2" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div class="form-group">
+              <label for="qaFormCategory" style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Category *</label>
+              <select id="qaFormCategory" class="form-input" required style="width:100%;">
+                <option value="College Identity">College Identity</option>
+                <option value="College History">College History</option>
+                <option value="Campus & Location">Campus & Location</option>
+                <option value="Campus & Infrastructure">Campus & Infrastructure</option>
+                <option value="House System">House System</option>
+                <option value="Administration & Leadership">Administration & Leadership</option>
+                <option value="Admissions & Academics">Admissions & Academics</option>
+                <option value="General Overview">General Overview</option>
+                <option value="Custom Topic">Custom Topic</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="qaFormKeywords" style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Match Keywords (comma-separated) *</label>
+              <input type="text" id="qaFormKeywords" class="form-input" required placeholder="e.g. motto, slogan, মূলমন্ত্র" style="width:100%;">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:1rem;">
+            <label for="qaFormAnswer" style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Spoken Answer (Spoken by Robotic AI) *</label>
+            <textarea id="qaFormAnswer" class="form-input" rows="4" required placeholder="Enter the exact answer the robot should speak aloud..." style="width:100%; resize:vertical;"></textarea>
+          </div>
+
+          <div class="form-group" style="margin-bottom:1.25rem;">
+            <label for="qaFormVariations" style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Creative Variations (Used when asked twice, one per line)</label>
+            <textarea id="qaFormVariations" class="form-input" rows="3" placeholder="Alternative phrasing variation 1&#10;Alternative phrasing variation 2" style="width:100%; resize:vertical;"></textarea>
+            <span style="font-size:0.75rem; color:var(--text-muted); display:block; margin-top:0.25rem;">When a user asks this question again, the AI selects these variations to keep speech creative and fresh.</span>
+          </div>
+
+          <div class="modal-form-actions" style="display:flex; justify-content:flex-end; gap:0.75rem; padding-top:1rem; border-top:1px solid var(--border-subtle);">
+            <button type="button" class="btn-institutional-secondary" onclick="closeQaModal()">Cancel</button>
+            <button type="submit" class="btn-institutional-primary">Save to Knowledge Base</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: INSTITUTIONAL ACTION CONFIRMATION (REPLACES BROWSER CONFIRM)
+       ======================================================== -->
+  <div class="modal-backdrop" id="appConfirmModal" hidden>
+    <div class="modal-dialog confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle">
+      <div class="confirm-modal-content">
+        <button type="button" class="modal-close-btn" id="confirmModalCloseBtn" aria-label="Close">✕</button>
+        <div class="confirm-modal-header">
+          <div class="confirm-modal-icon" id="confirmModalIcon">⚠️</div>
+          <div>
+            <h3 class="confirm-modal-title" id="confirmModalTitle">Confirm Action</h3>
+            <p class="confirm-modal-message" id="confirmModalMessage">Are you sure you wish to proceed?</p>
+          </div>
+        </div>
+        <div class="confirm-modal-actions">
+          <button type="button" class="btn-institutional-secondary" id="confirmModalCancelBtn">Cancel</button>
+          <button type="button" class="btn-institutional-primary danger" id="confirmModalConfirmBtn">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real-time Toast Notifications Host -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript Application Logic -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "mcc-ai-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --import tsx server.ts",
+    "start": "node --import tsx server.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^1.21.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "vite": "^5.4.10"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.3"
+  }
+}
